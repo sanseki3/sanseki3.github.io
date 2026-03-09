@@ -1,339 +1,73 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedro / Sanseki</title>
-  <meta name="description" content="Site pessoal de Pedro / Sanseki — notas, ensaios, projetos e arquivos vivos." />
-  <style>
-    :root {
-      --bg: #f7f7f5;
-      --text: #151515;
-      --muted: #666;
-      --border: #d9d9d4;
-      --link: #4d2ea8;
-      --max: 1080px;
-    }
+---
+layout: default
+---
+{% assign recent_notes = site.notes | sort: "updated" | reverse | slice: 0, 5 %}
+{% assign recent_essays = site.essays | sort: "updated" | reverse | slice: 0, 3 %}
+{% assign recent_projects = site.projects | sort: "updated" | reverse | slice: 0, 3 %}
+<header class="hero">
+  <div class="eyebrow">site pessoal</div>
+  <h1>Eu quero reunir aqui o que vale a pena guardar.</h1>
+  <p>Este site existe para funcionar como arquivo pessoal, banco público de notas e oficina de pensamento. Algumas páginas começam pequenas, outras viram ensaios; todas podem crescer, mudar e ficar mais úteis com o tempo.</p>
+</header>
 
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
-      font-size: 18px;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .wrapper {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 32px 20px 80px;
-      display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 40px;
-    }
-
-    aside {
-      position: sticky;
-      top: 24px;
-      align-self: start;
-      padding-right: 12px;
-    }
-
-    .brand {
-      margin-bottom: 28px;
-    }
-
-    .brand h1 {
-      margin: 0 0 6px;
-      font-size: 1.6rem;
-      line-height: 1.2;
-    }
-
-    .brand p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    nav {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 28px;
-      font-size: 0.98rem;
-    }
-
-    .note {
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    main {
-      min-width: 0;
-    }
-
-    header.hero {
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .eyebrow {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.75rem;
-      margin-bottom: 12px;
-    }
-
-    header.hero h2 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 1.08;
-      font-weight: 600;
-    }
-
-    header.hero p {
-      margin: 0;
-      max-width: 760px;
-      font-size: 1.08rem;
-    }
-
-    section {
-      margin: 0 0 44px;
-    }
-
-    section h3 {
-      margin: 0 0 14px;
-      font-size: 1.55rem;
-      line-height: 1.2;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .card-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .card {
-      padding: 18px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .card:first-child {
-      border-top: 1px solid var(--border);
-    }
-
-    .card h4 {
-      margin: 0 0 6px;
-      font-size: 1.15rem;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-    }
-
-    .card p,
-    section p {
-      margin: 0 0 12px;
-    }
-
-    .now-box {
-      padding: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.45);
-    }
-
-    footer {
-      margin-top: 60px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .wrapper {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      aside {
-        position: static;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 18px;
-      }
-
-      nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 560px) {
-      body {
-        font-size: 17px;
-      }
-
-      nav {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <aside>
-      <div class="brand">
-        <h1>Pedro / Sanseki</h1>
-        <p>um arquivo pessoal vivo sobre trabalho, criação, ideias e mundo</p>
-      </div>
-
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#ensaios">Ensaios</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#notas">Notas</a>
-        <a href="#agora">Agora</a>
-        <a href="#arquivo">Arquivo</a>
-      </nav>
-
-      <div class="note">
-        <strong>Princípio:</strong> este site não é feed. É oficina, arquivo e mapa mental. As páginas podem crescer, mudar e ficar melhores com o tempo.
-      </div>
-    </aside>
-
-    <main>
-      <header class="hero">
-        <div class="eyebrow">site pessoal</div>
-        <h2>Eu quero reunir aqui o que vale a pena guardar.</h2>
-        <p>
-          Este é um espaço para textos longos, notas curtas, projetos em andamento, aprendizados técnicos,
-          referências culturais e ideias que ainda não estão prontas. O objetivo não é publicar sem parar,
-          mas construir algo que continue útil para mim daqui a cinco, dez ou vinte anos.
-        </p>
-      </header>
-
-      <section id="sobre">
-        <h3>Sobre</h3>
-        <p>
-          Meu nome é Pedro. Trabalho com inovação, penso muito sobre logística, tecnologia, criação e educação,
-          e tento construir uma vida criativa que una análise, estética e experimentação.
-        </p>
-        <p>
-          Este site existe para centralizar coisas que normalmente se perdem em apps, conversas, arquivos soltos e posts passageiros.
-          Quero que ele seja mais próximo de uma biblioteca pessoal do que de uma rede social.
-        </p>
-      </section>
-
-      <section id="ensaios">
-        <h3>Ensaios</h3>
-        <p class="section-intro">Textos mais longos, mais pensados e mais permanentes.</p>
-        <div class="card-list">
-          <article class="card">
-            <h4><a href="#">Como eu penso projetos de inovação no contexto portuário</a></h4>
-            <div class="meta">ensaio · estratégia · operações</div>
-            <p>Uma tentativa de organizar como oportunidades, restrições, tecnologia e execução realmente se encontram no mundo portuário.</p>
-          </article>
-          <article class="card">
-            <h4><a href="#">IA generativa como ferramenta de criação e pensamento</a></h4>
-            <div class="meta">ensaio · IA · processo criativo</div>
-            <p>Menos hype e mais prática: onde a IA ajuda, onde atrapalha, e como usá-la sem perder identidade própria.</p>
-          </article>
-          <article class="card">
-            <h4><a href="#">O que significa construir uma vida autoral na internet</a></h4>
-            <div class="meta">ensaio · internet · identidade</div>
-            <p>Por que vale mais ter uma casa digital própria do que depender apenas de plataformas alugadas.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="projetos">
-        <h3>Projetos</h3>
-        <p class="section-intro">Coisas em construção, com progresso visível.</p>
-        <div class="card-list">
-          <article class="card">
-            <h4><a href="#">Sanseki</a></h4>
-            <div class="meta">marca pessoal · conteúdo · audiovisual</div>
-            <p>Universo criativo que junta streaming, vídeo, identidade visual, narrativa, música, anime e experimentação digital.</p>
-          </article>
-          <article class="card">
-            <h4><a href="#">Cadernos de Porto e Logística</a></h4>
-            <div class="meta">trabalho · pesquisa aplicada</div>
-            <p>Análises, frameworks e notas sobre operações portuárias, modelagem, capacidade, inovação e infraestrutura.</p>
-          </article>
-          <article class="card">
-            <h4><a href="#">Laboratório de Ferramentas de IA</a></h4>
-            <div class="meta">ferramentas · testes · guias</div>
-            <p>Experimentos práticos com voz, imagem, vídeo, escrita, automações e prototipagem de produtos criativos.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="notas">
-        <h3>Notas</h3>
-        <p class="section-intro">Entradas mais curtas. Ideias rápidas, referências, observações e fragmentos.</p>
-        <div class="card-list">
-          <article class="card">
-            <h4><a href="#">Uma boa nota não precisa nascer pronta</a></h4>
-            <div class="meta">nota · escrita</div>
-            <p>Publicar rascunhos úteis pode ser melhor do que esperar um texto “definitivo” que nunca chega.</p>
-          </article>
-          <article class="card">
-            <h4><a href="#">Arquivos pessoais são infraestrutura criativa</a></h4>
-            <div class="meta">nota · organização</div>
-            <p>Quanto menos fricção para salvar e encontrar ideias, mais fácil produzir algo consistente ao longo dos anos.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="agora">
-        <h3>Agora</h3>
-        <div class="now-box">
-          <p><strong>O que estou fazendo neste período:</strong></p>
-          <p>• estruturando um site pessoal e um sistema de notas públicas;</p>
-          <p>• desenvolvendo projetos ligados a inovação e operações;</p>
-          <p>• estudando criação audiovisual com IA e linguagem mais autoral;</p>
-          <p>• tentando construir uma rotina mais forte de escrita e publicação.</p>
-        </div>
-      </section>
-
-      <section id="arquivo">
-        <h3>Arquivo</h3>
-        <p>
-          Com o tempo, esta seção pode virar uma lista cronológica ou temática de tudo que já foi publicado aqui:
-          textos, diários de projeto, leituras, referências, links úteis, cadernos de pesquisa e versões antigas.
-        </p>
-      </section>
-
-      <footer>
-        <p>
-          Feito para durar. Escrito para o meu eu futuro — e para qualquer outra pessoa que tropece aqui e ache algo útil.
-        </p>
-      </footer>
-    </main>
+<section class="section-block">
+  <div class="callout">
+    <p><strong>Como usar este site:</strong> leia como quem entra em uma biblioteca em construção. Nem tudo aqui nasce fechado. Algumas notas são sementes; outras já estão relativamente estáveis. O foco não é publicar volume, mas manter um rastro de pensamento que continue valendo para o meu eu futuro.</p>
   </div>
-</body>
-</
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Notas atualizadas recentemente</h2>
+    <a href="{{ '/notes/' | relative_url }}">ver todas</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_notes %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Ensaios</h2>
+    <a href="{{ '/essays/' | relative_url }}">ver todos</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_essays %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Projetos</h2>
+    <a href="{{ '/projects/' | relative_url }}">ver todos</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_projects %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Comece por aqui</h2>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/about/' | relative_url }}">Sobre este arquivo</a></h3>
+      <p>Por que este site existe, como penso suas páginas e o que estou tentando construir aqui.</p>
+    </article>
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/notes/nier-replicant/' | relative_url }}">Nier Replicant</a></h3>
+      <p>A primeira nota viva já publicada no novo sistema.</p>
+    </article>
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/topics/' | relative_url }}">Mapa de temas</a></h3>
+      <p>O jeito mais rápido de navegar pelo site sem depender de ordem cronológica.</p>
+    </article>
+  </div>
+</section>
