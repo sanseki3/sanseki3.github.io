@@ -1,0 +1,13 @@
+---
+layout: page
+title: Ensaios
+permalink: /essays/
+eyebrow: textos longos
+summary: Ensaios mais extensos, mais amarrados e relativamente mais estáveis.
+---
+{% assign essays = site.essays | sort: "updated" | reverse %}
+<div class="card-grid">
+  {% for doc in essays %}
+    {% include doc-card.html doc=doc %}
+  {% endfor %}
+</div>

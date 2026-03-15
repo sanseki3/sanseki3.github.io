@@ -1,0 +1,13 @@
+---
+layout: page
+title: Projetos
+permalink: /projects/
+eyebrow: universos em construção
+summary: Projetos criativos, sistemas, investigações e trabalhos em andamento.
+---
+{% assign projects = site.projects | sort: "updated" | reverse %}
+<div class="card-grid">
+  {% for doc in projects %}
+    {% include doc-card.html doc=doc %}
+  {% endfor %}
+</div>

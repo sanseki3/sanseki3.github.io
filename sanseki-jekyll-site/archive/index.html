@@ -1,0 +1,13 @@
+---
+layout: page
+title: Arquivo
+permalink: /archive/
+eyebrow: panorama geral
+summary: Tudo o que está publicado, sem depender do menu principal.
+---
+{% assign docs = site.notes | concat: site.dreams | concat: site.essays | concat: site.projects | sort: "updated" | reverse %}
+<div class="card-grid">
+  {% for doc in docs %}
+    {% include doc-card.html doc=doc %}
+  {% endfor %}
+</div>

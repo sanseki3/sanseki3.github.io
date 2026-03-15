@@ -1,0 +1,33 @@
+- slug: arte
+  name: Arte
+  description: Estética, imagem, música, forma, composição e criação.
+- slug: animacao
+  name: Animação
+  description: Anime, linguagem visual, direção, ritmo e mundos animados.
+- slug: filosofia
+  name: Filosofia
+  description: Ideias, conceitos, autores, visões de mundo e problemas fundamentais.
+- slug: historia
+  name: História
+  description: Civilizações, símbolos, transformações culturais e memória histórica.
+- slug: economia
+  name: Economia
+  description: Poder, incentivos, estruturas, mercado, valor e modernidade.
+- slug: jogos
+  name: Jogos
+  description: Games como obra, sistema, rito, estética e máquina narrativa.
+- slug: internet
+  name: Internet
+  description: Casa digital, plataformas, autoria, arquivo e vida online.
+- slug: ia
+  name: IA
+  description: Ferramentas, imaginação técnica, escrita assistida e criação generativa.
+- slug: religiao
+  name: Religião
+  description: Mitos, símbolos, angelologia, metafísica e imaginação religiosa.
+- slug: narrativa
+  name: Narrativa
+  description: Estrutura, voz, mundo, personagem, repetição e sentido.
+- slug: sonhos
+  name: Sonhos
+  description: Registros de sonhos, símbolos, atmosferas, repetições e imagens noturnas.

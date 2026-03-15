@@ -1,0 +1,53 @@
+---
+layout: page
+title: Temas
+permalink: /topics/
+eyebrow: mapa conceitual
+summary: Navegação por assunto, para que o site funcione também como mapa de pensamento.
+---
+<p class="section-intro">As tags não são só ornamento. Elas funcionam como trilhas. Cada seção abaixo puxa notas, sonhos, ensaios e projetos que tocam naquele tema.</p>
+
+{% assign notes = site.notes | sort: "updated" | reverse %}
+{% assign dreams = site.dreams | sort: "dream_date" | reverse %}
+{% assign essays = site.essays | sort: "updated" | reverse %}
+{% assign projects = site.projects | sort: "updated" | reverse %}
+
+{% for topic in site.data.topics %}
+  {% assign found = false %}
+  <section class="topic-block" id="{{ topic.slug }}">
+    <h2>{{ topic.name }}</h2>
+    <p class="section-intro">{{ topic.description }}</p>
+
+    {% for doc in notes %}
+      {% if doc.tags contains topic.slug %}
+        {% assign found = true %}
+        {% include doc-card.html doc=doc %}
+      {% endif %}
+    {% endfor %}
+
+    {% for doc in dreams %}
+      {% if doc.tags contains topic.slug %}
+        {% assign found = true %}
+        {% include doc-card.html doc=doc %}
+      {% endif %}
+    {% endfor %}
+
+    {% for doc in essays %}
+      {% if doc.tags contains topic.slug %}
+        {% assign found = true %}
+        {% include doc-card.html doc=doc %}
+      {% endif %}
+    {% endfor %}
+
+    {% for doc in projects %}
+      {% if doc.tags contains topic.slug %}
+        {% assign found = true %}
+        {% include doc-card.html doc=doc %}
+      {% endif %}
+    {% endfor %}
+
+    {% unless found %}
+      <p class="empty-note">Ainda não há páginas publicadas sob este tema.</p>
+    {% endunless %}
+  </section>
+{% endfor %}

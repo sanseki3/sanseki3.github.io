@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<article class="doc-page">
+  <header class="page-header">
+    <div class="eyebrow">ensaio</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
+
+    <div class="doc-meta-grid">
+      {% if page.started %}
+        <div><span class="label">iniciado</span><strong>{{ page.started | date: "%d/%m/%Y" }}</strong></div>
+      {% endif %}
+      {% if page.updated %}
+        <div><span class="label">última atualização</span><strong>{{ page.updated | date: "%d/%m/%Y" }}</strong></div>
+      {% endif %}
+      {% if page.status %}
+        <div><span class="label">status</span><strong>{{ page.status }}</strong></div>
+      {% endif %}
+      <div><span class="label">estado</span><strong>{% if page.finished %}finalizado{% else %}em aberto{% endif %}</strong></div>
+    </div>
+
+    {% if page.tags and page.tags.size > 0 %}
+      <div class="tag-row">
+        {% for tag in page.tags %}
+          <a class="tag" href="{{ '/topics/#' | append: (tag | slugify) | relative_url }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if page.changelog and page.changelog.size > 0 %}
+    <section class="section-block">
+      <h2>Histórico do ensaio</h2>
+      <ul class="history-list">
+        {% for item in page.changelog %}
+          <li><strong>{{ item.date | date: "%d/%m/%Y" }}</strong> — {{ item.note }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</article>

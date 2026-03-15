@@ -1,0 +1,90 @@
+---
+layout: default
+---
+{% assign recent_notes = site.notes | sort: "updated" | reverse | slice: 0, 4 %}
+{% assign recent_dreams = site.dreams | sort: "dream_date" | reverse | slice: 0, 3 %}
+{% assign recent_essays = site.essays | sort: "updated" | reverse | slice: 0, 3 %}
+{% assign recent_projects = site.projects | sort: "updated" | reverse | slice: 0, 3 %}
+<header class="hero">
+  <div class="eyebrow">site pessoal</div>
+  <h1>Um arquivo vivo para pensamento, imaginação e memória.</h1>
+  <p>Este site existe para funcionar como banco público de notas, diário de sonhos, oficina de pensamento e arquivo pessoal de longo prazo. Algumas páginas nascem como semente; outras vão se tornando ensaios, mapas ou registros mais densos com o tempo.</p>
+</header>
+
+<section class="section-block">
+  <div class="callout">
+    <p><strong>Como usar este site:</strong> leia como quem entra em uma biblioteca em construção. Nem tudo aqui nasce pronto. Algumas páginas são abertas, incrementais e deliberadamente inacabadas. O foco é deixar rastros úteis para o meu eu futuro.</p>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Notas atualizadas recentemente</h2>
+    <a href="{{ '/notes/' | relative_url }}">ver todas</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_notes %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Diário dos Sonhos</h2>
+    <a href="{{ '/diario-dos-sonhos/' | relative_url }}">abrir diário</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_dreams %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Ensaios</h2>
+    <a href="{{ '/essays/' | relative_url }}">ver todos</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_essays %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Projetos</h2>
+    <a href="{{ '/projects/' | relative_url }}">ver todos</a>
+  </div>
+  <div class="card-grid">
+    {% for doc in recent_projects %}
+      {% include doc-card.html doc=doc %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <h2>Comece por aqui</h2>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/about/' | relative_url }}">Sobre este arquivo</a></h3>
+      <p>Por que este site existe, como penso suas páginas e o que estou tentando construir aqui.</p>
+    </article>
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/diario-dos-sonhos/' | relative_url }}">Diário dos Sonhos</a></h3>
+      <p>Uma área separada para registrar sonhos por data, seguir a cronologia e voltar depois para revisar símbolos, repetições e atmosferas.</p>
+    </article>
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/notes/nier-replicant/' | relative_url }}">Nier Replicant</a></h3>
+      <p>Exemplo de nota viva em crescimento contínuo.</p>
+    </article>
+    <article class="card">
+      <h3 class="card-title"><a href="{{ '/topics/' | relative_url }}">Mapa de temas</a></h3>
+      <p>O jeito mais rápido de navegar pelo site sem depender de ordem cronológica.</p>
+    </article>
+  </div>
+</section>

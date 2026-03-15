@@ -1,0 +1,30 @@
+---
+layout: page
+title: Changelog
+permalink: /changelog/
+eyebrow: mudanças recentes
+summary: Registro público das páginas mais recentemente alteradas.
+---
+{% assign docs = site.notes | concat: site.dreams | concat: site.essays | concat: site.projects | sort: "updated" | reverse %}
+<div class="card-grid">
+  {% for doc in docs limit: 25 %}
+    <article class="card">
+      <h3 class="card-title"><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a></h3>
+      <div class="meta-line">
+        <span class="meta-pill">{{ doc.kind }}</span>
+        {% if doc.status %}<span class="meta-pill status-{{ doc.status | slugify }}">{{ doc.status }}</span>{% endif %}
+        {% if doc.dream_date %}
+          <span>sonhado em {{ doc.dream_date | date: "%d/%m/%Y" }}</span>
+        {% elsif doc.updated %}
+          <span>atualizado em {{ doc.updated | date: "%d/%m/%Y" }}</span>
+        {% endif %}
+      </div>
+      {% if doc.changelog and doc.changelog.size > 0 %}
+        {% assign latest_change = doc.changelog | last %}
+        <p><strong>Última mudança registrada:</strong> {{ latest_change.note }}</p>
+      {% elsif doc.summary %}
+        <p>{{ doc.summary }}</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>

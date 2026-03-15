@@ -1,0 +1,22 @@
+<article class="card">
+  <h3 class="card-title"><a href="{{ include.doc.url | relative_url }}">{{ include.doc.title }}</a></h3>
+  <div class="meta-line">
+    {% if include.doc.kind %}<span class="meta-pill">{{ include.doc.kind }}</span>{% endif %}
+    {% if include.doc.status %}<span class="meta-pill status-{{ include.doc.status | slugify }}">{{ include.doc.status }}</span>{% endif %}
+    {% if include.doc.dream_date %}
+      <span>sonhado em {{ include.doc.dream_date | date: "%d/%m/%Y" }}</span>
+    {% elsif include.doc.updated %}
+      <span>atualizado em {{ include.doc.updated | date: "%d/%m/%Y" }}</span>
+    {% endif %}
+  </div>
+  {% if include.doc.summary %}
+    <p>{{ include.doc.summary }}</p>
+  {% endif %}
+  {% if include.doc.tags and include.doc.tags.size > 0 %}
+    <div class="tag-row">
+      {% for tag in include.doc.tags %}
+        <a class="tag" href="{{ '/topics/#' | append: (tag | slugify) | relative_url }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</article>

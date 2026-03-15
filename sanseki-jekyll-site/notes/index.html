@@ -1,0 +1,13 @@
+---
+layout: page
+title: Notas
+permalink: /notes/
+eyebrow: banco público de notas
+summary: Notas vivas, em diferentes estágios de maturação, ordenadas pela última atualização.
+---
+{% assign notes = site.notes | sort: "updated" | reverse %}
+<div class="card-grid">
+  {% for doc in notes %}
+    {% include doc-card.html doc=doc %}
+  {% endfor %}
+</div>

@@ -1,0 +1,22 @@
+- title: Início
+  url: /
+- title: Sobre
+  url: /about/
+- title: Notas
+  url: /notes/
+- title: Diário dos Sonhos
+  url: /diario-dos-sonhos/
+- title: Ensaios
+  url: /essays/
+- title: Projetos
+  url: /projects/
+- title: Biblioteca
+  url: /library/
+- title: Temas
+  url: /topics/
+- title: Agora
+  url: /now/
+- title: Changelog
+  url: /changelog/
+- title: Arquivo
+  url: /archive/

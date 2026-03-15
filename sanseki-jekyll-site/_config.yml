@@ -1,0 +1,71 @@
+title: Pedro / Sanseki
+email: ""
+description: >-
+  Arquivo pessoal vivo de Pedro / Sanseki: notas públicas, diário dos sonhos,
+  ensaios, projetos, referências e páginas em crescimento contínuo.
+url: "https://sanseki3.github.io"
+baseurl: ""
+lang: "pt-BR"
+timezone: America/Sao_Paulo
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: pretty
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+  dreams:
+    output: true
+    permalink: /diario-dos-sonhos/:name/
+  essays:
+    output: true
+    permalink: /essays/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+      kind: nota
+      status: seed
+      finished: false
+  - scope:
+      path: ""
+      type: dreams
+    values:
+      layout: note
+      kind: sonho
+      status: draft
+      finished: false
+      eyebrow: diário dos sonhos
+  - scope:
+      path: ""
+      type: essays
+    values:
+      layout: essay
+      kind: ensaio
+      status: stable
+      finished: false
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      kind: projeto
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/

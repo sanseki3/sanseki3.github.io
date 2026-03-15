@@ -1,0 +1,45 @@
+---
+layout: page
+title: Diário dos Sonhos
+permalink: /diario-dos-sonhos/
+eyebrow: registro cronológico
+summary: Uma área para registrar sonhos de forma simples, ir revisando com o tempo e acompanhar recorrências por data.
+---
+<p class="section-intro">Aqui a organização principal não depende de tags de mês e ano. Ela depende da <strong>data do sonho</strong>, usando o campo <code>dream_date</code>. Isso torna a cronologia automática e mais útil para revisitas futuras.</p>
+
+<div class="callout section-block">
+  <p><strong>Fluxo simples para usar esta área:</strong></p>
+  <ol>
+    <li>Copie o arquivo <code>_templates/dream-template.md</code>.</li>
+    <li>Cole dentro da pasta <code>_dreams/</code>.</li>
+    <li>Renomeie com uma data e um nome curto. Exemplo: <code>2026-03-14-sonho-no-mar.md</code>.</li>
+    <li>Preencha <code>dream_date</code>, <code>started</code> e <code>updated</code>.</li>
+    <li>Escreva primeiro do jeito bruto, sem tentar interpretar tudo.</li>
+    <li>Se quiser, depois acrescente símbolos, atmosfera, pessoas e possíveis ligações com outros sonhos.</li>
+  </ol>
+</div>
+
+{% assign dreams = site.dreams | sort: "dream_date" | reverse %}
+{% if dreams.size > 0 %}
+  {% assign current_group = "" %}
+  {% for doc in dreams %}
+    {% assign group_key = doc.dream_date | date: "%Y-%m" %}
+    {% if group_key != current_group %}
+      {% unless forloop.first %}
+        </div>
+      </section>
+      {% endunless %}
+      <section class="chronology-block">
+        <h2>{{ doc.dream_date | date: "%m/%Y" }}</h2>
+        <div class="card-grid">
+      {% assign current_group = group_key %}
+    {% endif %}
+    {% include doc-card.html doc=doc %}
+    {% if forloop.last %}
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <p class="empty-note">Ainda não há sonhos publicados.</p>
+{% endif %}
