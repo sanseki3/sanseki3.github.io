@@ -1,16 +1,16 @@
 <div class="shell">
   <header class="site-header">
+    <nav class="top-nav" aria-label="Navegação principal">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+
     <div class="header-top">
       <div class="brand-block">
         <a class="brand-link" href="{{ '/' | relative_url }}">Pedro / Sanseki</a>
         <p class="brand-subtitle">arquivo pessoal vivo · notas, sonhos, ensaios, projetos e referências</p>
       </div>
-
-      <nav class="top-nav" aria-label="Navegação principal">
-        {% for item in site.data.navigation %}
-          <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
-        {% endfor %}
-      </nav>
     </div>
 
     <div class="header-note">
