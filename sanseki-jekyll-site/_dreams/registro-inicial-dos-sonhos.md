@@ -1,6 +1,6 @@
 ---
 title: "Registro inicial dos sonhos"
-summary: "Primeira página do Diário dos Sonhos, pronta para ser editada com sonhos e observações novas."
+summary: "Página inicial do Diário dos Sonhos, com modelo simples para você preencher passo a passo."
 dream_date: 2026-03-14
 started: 2026-03-14
 updated: 2026-03-14
@@ -11,17 +11,21 @@ tags: [sonhos]
 changelog:
   - date: 2026-03-14
     note: Página inicial do Diário dos Sonhos criada.
+  - date: 2026-03-14
+    note: Estrutura simplificada para preencher sonhos rapidamente, em ordem cronológica.
 ---
 
-Esta é a primeira página do **Diário dos Sonhos**. Você pode editar este arquivo sempre que quiser registrar um sonho novo, ou usar o template para criar um arquivo separado para cada sonho.
+Esta é a primeira página do **Diário dos Sonhos**. Edite sempre que quiser registrar sonhos de forma rápida.
 
-## Como usar esta página
+## Passo a passo (bem simples)
 
-1. Anote primeiro o que aconteceu, sem se preocupar em interpretar.
-2. Depois acrescente imagens marcantes, pessoas, símbolos e sensações.
-3. Se um sonho merecer mais atenção, transforme-o em uma entrada própria copiando o template de sonhos.
+1. Comece em **Sonho 1**.
+2. Troque a data.
+3. Escreva o que aconteceu em **Registro bruto**.
+4. Complete os três itens de apoio.
+5. Se quiser criar outro registro, copie e cole o bloco inteiro e mude para **Sonho 2, Sonho 3...**
 
-## Sonho 1
+## Sonho 1 (modelo editável)
 
 ### Data
 
@@ -50,6 +54,10 @@ Escreva aqui o sonho como ele veio.
 ### Sensação ao acordar
 
 -
+
+### Próximo passo
+
+Se este sonho crescer, crie um arquivo próprio em <code>_dreams/</code> com o template e mantenha esta página como índice rápido.
 
 ## Sonho 2
 
