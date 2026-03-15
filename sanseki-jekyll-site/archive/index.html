@@ -5,7 +5,7 @@ permalink: /archive/
 eyebrow: panorama geral
 summary: Tudo o que está publicado, sem depender do menu principal.
 ---
-{% assign docs = site.notes | concat: site.dreams | concat: site.essays | concat: site.projects | sort: "updated" | reverse %}
+{% assign docs = site.notes.docs | concat: site.dreams.docs | concat: site.essays.docs | concat: site.projects.docs | sort: "updated" | reverse %}
 <div class="card-grid">
   {% for doc in docs %}
     {% include doc-card.html doc=doc %}

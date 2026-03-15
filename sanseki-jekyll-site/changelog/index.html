@@ -5,7 +5,7 @@ permalink: /changelog/
 eyebrow: mudanças recentes
 summary: Registro público das páginas mais recentemente alteradas.
 ---
-{% assign docs = site.notes | concat: site.dreams | concat: site.essays | concat: site.projects | sort: "updated" | reverse %}
+{% assign docs = site.notes.docs | concat: site.dreams.docs | concat: site.essays.docs | concat: site.projects.docs | sort: "updated" | reverse %}
 <div class="card-grid">
   {% for doc in docs limit: 25 %}
     <article class="card">
