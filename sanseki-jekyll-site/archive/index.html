@@ -5,7 +5,12 @@ permalink: /archive/
 eyebrow: panorama geral
 summary: Tudo o que está publicado, sem depender do menu principal.
 ---
-{% assign docs = site.notes.docs | concat: site.dreams.docs | concat: site.essays.docs | concat: site.projects.docs | sort: "updated" | reverse %}
+{% assign empty_array = "" | split: "" %}
+{% assign notes_docs = site.notes.docs | default: empty_array %}
+{% assign dreams_docs = site.dreams.docs | default: empty_array %}
+{% assign essays_docs = site.essays.docs | default: empty_array %}
+{% assign projects_docs = site.projects.docs | default: empty_array %}
+{% assign docs = notes_docs | concat: dreams_docs | concat: essays_docs | concat: projects_docs | sort: "updated" | reverse %}
 <div class="card-grid">
   {% for doc in docs %}
     {% include doc-card.html doc=doc %}

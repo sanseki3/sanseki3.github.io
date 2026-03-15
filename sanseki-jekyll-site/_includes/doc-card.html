@@ -4,6 +4,7 @@
     {% if include.doc.kind %}<span class="meta-pill">{{ include.doc.kind }}</span>{% endif %}
     {% if include.doc.status %}<span class="meta-pill status-{{ include.doc.status | slugify }}">{{ include.doc.status }}</span>{% endif %}
     {% if include.doc.dream_date %}
+      <span class="meta-pill">{{ include.doc.dream_date | date: "%m/%Y" }}</span>
       <span>sonhado em {{ include.doc.dream_date | date: "%d/%m/%Y" }}</span>
     {% elsif include.doc.updated %}
       <span>atualizado em {{ include.doc.updated | date: "%d/%m/%Y" }}</span>
