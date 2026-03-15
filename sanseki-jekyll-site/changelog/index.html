@@ -5,7 +5,12 @@ permalink: /changelog/
 eyebrow: mudanças recentes
 summary: Registro público das páginas mais recentemente alteradas.
 ---
-{% assign docs = site.notes.docs | concat: site.dreams.docs | concat: site.essays.docs | concat: site.projects.docs | sort: "updated" | reverse %}
+{% assign empty_array = "" | split: "" %}
+{% assign notes_docs = site.notes.docs | default: empty_array %}
+{% assign dreams_docs = site.dreams.docs | default: empty_array %}
+{% assign essays_docs = site.essays.docs | default: empty_array %}
+{% assign projects_docs = site.projects.docs | default: empty_array %}
+{% assign docs = notes_docs | concat: dreams_docs | concat: essays_docs | concat: projects_docs | sort: "updated" | reverse %}
 <div class="card-grid">
   {% for doc in docs limit: 25 %}
     <article class="card">
