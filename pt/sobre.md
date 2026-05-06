@@ -24,8 +24,8 @@ Este site é um caderno público. Aqui registro o processo de criação dos meus
 
 ## Onde me encontrar
 
-- E-mail: [seu-email@exemplo.com](mailto:seu-email@exemplo.com)
-- Instagram: [@seu_usuario](https://instagram.com/seu_usuario)
-- YouTube: [seu canal](https://youtube.com/@seu_canal)
+- Email: [pedrostanley42@gmail.com](mailto:pedrostanley42@gmail.com)
+- Instagram: [@3sanseki](https://x.com/3sanseki)
+- YouTube: [SANSEKI 三石](https://www.youtube.com/@sansekitv)
 
 </div>
