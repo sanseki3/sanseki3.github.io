@@ -1,0 +1,122 @@
+# ============================================================
+# DICIONÁRIO DE TRADUÇÕES E TEXTOS DA HOME
+# ============================================================
+# Este arquivo controla os textos da interface (menus, botões, etc)
+# E também o texto principal da página inicial.
+#
+# Para mudar qualquer texto, basta editar a string correspondente.
+# Em 1-2 minutos depois do commit, o site se atualiza.
+# ============================================================
+
+
+# ============================================================
+# TEXTO DA HOME (parte mais editada do site)
+# ============================================================
+# Pode usar HTML inline:
+#   <em>palavra em italic destacado</em>  →  italic colorido
+#   <br>                                  →  quebra de linha
+
+home_kicker:
+  pt-br: "Caderno de processo"
+  en: "Process journal"
+  ja: "制作ノート"
+
+home_headline:
+  pt-br: |
+    Notas, ensaios e <em>making-ofs</em><br>
+    de um cineasta em formação.
+  en: |
+    Notes, essays, and <em>making-ofs</em><br>
+    from a filmmaker in the making.
+  ja: |
+    映画づくりを学ぶ者の<br>
+    制作ノート、エッセイ、<em>メイキング</em>。
+
+home_intro:
+  pt-br: |
+    Este é meu espaço pessoal — onde registro o processo de criação dos meus filmes,
+    ensaios sobre cinema e animação, e o que mais aparecer pelo caminho.
+  en: |
+    This is my personal space — where I record the process behind my films,
+    essays on cinema and animation, and whatever else shows up along the way.
+  ja: |
+    ここは、自作映画の制作過程、映画とアニメーションについてのエッセイ、
+    そして道すがら出会うものを書き留めるための場所です。
+
+
+# ============================================================
+# NAVEGAÇÃO E INTERFACE (raramente editado)
+# ============================================================
+
+nav_home:     { pt-br: "Início",   en: "Home",     ja: "ホーム" }
+nav_projects: { pt-br: "Projetos", en: "Projects", ja: "プロジェクト" }
+nav_essays:   { pt-br: "Ensaios",  en: "Essays",   ja: "エッセイ" }
+nav_about:    { pt-br: "Sobre",    en: "About",    ja: "プロフィール" }
+
+theme_toggle:
+  pt-br: "Mudar tema"
+  en: "Toggle theme"
+  ja: "テーマ切替"
+
+home_recent:
+  pt-br: "Posts recentes"
+  en: "Recent posts"
+  ja: "最新の投稿"
+
+home_essays:
+  pt-br: "Ensaios"
+  en: "Essays"
+  ja: "エッセイ"
+
+home_empty:
+  pt-br: "Em breve, o primeiro post."
+  en: "First post coming soon."
+  ja: "まもなく、最初の投稿。"
+
+post_back:
+  pt-br: "← Voltar ao índice"
+  en: "← Back to index"
+  ja: "← 目次に戻る"
+
+footer_top:
+  pt-br: "Topo ↑"
+  en: "Top ↑"
+  ja: "上へ ↑"
+
+err_404_kicker:
+  pt-br: "Erro 404"
+  en: "Error 404"
+  ja: "エラー 404"
+
+err_404_title:
+  pt-br: "Página não encontrada."
+  en: "Page not found."
+  ja: "ページが見つかりません。"
+
+err_404_text:
+  pt-br: "Talvez o link esteja quebrado, ou a página tenha sido movida."
+  en: "The link may be broken, or the page may have moved."
+  ja: "リンクが切れているか、ページが移動された可能性があります。"
+
+err_404_back:
+  pt-br: "Voltar para o início ←"
+  en: "Back to home ←"
+  ja: "ホームに戻る ←"
+
+
+# ============================================================
+# MESES (formato de datas)
+# ============================================================
+
+month_1:  { pt-br: "janeiro",   en: "January" }
+month_2:  { pt-br: "fevereiro", en: "February" }
+month_3:  { pt-br: "março",     en: "March" }
+month_4:  { pt-br: "abril",     en: "April" }
+month_5:  { pt-br: "maio",      en: "May" }
+month_6:  { pt-br: "junho",     en: "June" }
+month_7:  { pt-br: "julho",     en: "July" }
+month_8:  { pt-br: "agosto",    en: "August" }
+month_9:  { pt-br: "setembro",  en: "September" }
+month_10: { pt-br: "outubro",   en: "October" }
+month_11: { pt-br: "novembro",  en: "November" }
+month_12: { pt-br: "dezembro",  en: "December" }

@@ -1,0 +1,46 @@
+---
+layout: default
+title: Ensaios
+permalink: /pt/ensaios/
+lang: pt-br
+translations:
+  en: /essays/
+  ja: /ja/essays/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>Ensaios</em></h1>
+    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">
+      Textos mais longos sobre cinema, animação, narrativa e o que mais aparecer.
+      Diferentes dos posts de processo: aqui o foco é a ideia, não o registro.
+    </p>
+  </header>
+
+  <ul class="post-list">
+    {%- if site.ensaios.size == 0 -%}
+      <li class="post-item">
+        <span class="post-item__date">—</span>
+        <div>
+          <p class="post-item__excerpt"><em>Nenhum ensaio publicado ainda.</em></p>
+        </div>
+      </li>
+    {%- else -%}
+      {%- for ensaio in site.ensaios -%}
+        <li class="post-item">
+          <span class="post-item__date">{%- include data.html date=ensaio.date lang="pt-br" format="curto" -%}</span>
+          <div>
+            <h2 class="post-item__title">
+              <a href="{{ ensaio.url | relative_url }}">{{ ensaio.title }}</a>
+            </h2>
+            {%- if ensaio.subtitle -%}
+              <p class="post-item__excerpt">{{ ensaio.subtitle }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+</div>

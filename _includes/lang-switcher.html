@@ -1,0 +1,51 @@
+{%- comment -%}
+  Switcher de idioma.
+
+  Para CADA página, define manualmente quais idiomas estão disponíveis
+  através da variável `translations` no front matter:
+
+    ---
+    translations:
+      en: /en/
+      ja: /ja/
+    ---
+
+  Se a página atual já é uma tradução, inclua os caminhos das outras versões.
+  Se um idioma não está em `translations`, ele aparece esmaecido (não clicável).
+{%- endcomment -%}
+
+{%- assign current_lang = page.lang | default: "en" -%}
+{%- assign translations = page.translations -%}
+
+<nav class="lang-switcher" aria-label="Idioma">
+  {%- comment -%} Português {%- endcomment -%}
+  {%- if current_lang == "pt-br" -%}
+    <span class="lang-switcher__current" aria-current="true">PT</span>
+  {%- elsif translations and translations.pt-br -%}
+    <a href="{{ translations.pt-br | relative_url }}" hreflang="pt-br" lang="pt-br">PT</a>
+  {%- else -%}
+    <span class="lang-switcher__unavailable" title="Versão em português indisponível para esta página">PT</span>
+  {%- endif -%}
+
+  <span class="lang-switcher__sep" aria-hidden="true">·</span>
+
+  {%- comment -%} Inglês {%- endcomment -%}
+  {%- if current_lang == "en" -%}
+    <span class="lang-switcher__current" aria-current="true">EN</span>
+  {%- elsif translations and translations.en -%}
+    <a href="{{ translations.en | relative_url }}" hreflang="en" lang="en">EN</a>
+  {%- else -%}
+    <span class="lang-switcher__unavailable" title="English version not available for this page">EN</span>
+  {%- endif -%}
+
+  <span class="lang-switcher__sep" aria-hidden="true">·</span>
+
+  {%- comment -%} Japonês {%- endcomment -%}
+  {%- if current_lang == "ja" -%}
+    <span class="lang-switcher__current" aria-current="true">日本語</span>
+  {%- elsif translations and translations.ja -%}
+    <a href="{{ translations.ja | relative_url }}" hreflang="ja" lang="ja">日本語</a>
+  {%- else -%}
+    <span class="lang-switcher__unavailable" title="日本語版はこのページではご利用いただけません">日本語</span>
+  {%- endif -%}
+</nav>

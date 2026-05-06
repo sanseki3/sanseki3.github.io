@@ -1,0 +1,17 @@
+---
+layout: default
+title: 404
+permalink: /404.html
+lang: en
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="page-content" style="text-align: center; padding-top: var(--space-xxl);">
+  <p class="home-hero__kicker">{{ t.err_404_kicker.en }}</p>
+  <h1 style="font-size: 4rem; font-style: italic;"><em>{{ t.err_404_title.en }}</em></h1>
+  <p style="font-size: 1.1rem; color: var(--color-ink-soft);">
+    {{ t.err_404_text.en }}<br>
+    <a href="{{ '/' | relative_url }}">{{ t.err_404_back.en }}</a>
+  </p>
+</div>

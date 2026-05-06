@@ -1,0 +1,34 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n -%}
+
+<footer class="site-footer">
+  {%- comment -%} Decoração de estrelas no rodapé, só visível no tema noite {%- endcomment -%}
+  <div class="footer-deco" aria-hidden="true">
+    <svg class="footer-deco__stars" viewBox="0 0 1200 32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <circle cx="80" cy="14" r="0.6" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="180" cy="22" r="0.9" fill="#FFFFFF" class="star-tw-a"/>
+      <circle cx="280" cy="10" r="0.5" fill="#FFFFFF" opacity="0.5"/>
+      <circle cx="380" cy="18" r="1.1" fill="#FFFFFF" opacity="0.85"/>
+      <circle cx="475" cy="24" r="0.6" fill="#FFFFFF" class="star-tw-c"/>
+      <circle cx="575" cy="12" r="0.7" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="670" cy="20" r="0.5" fill="#FFFFFF" opacity="0.6"/>
+      <circle cx="770" cy="26" r="1.0" fill="#FFFFFF" class="star-tw-b"/>
+      <circle cx="870" cy="14" r="0.7" fill="#FFFFFF" opacity="0.75"/>
+      <circle cx="965" cy="22" r="0.5" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="1060" cy="10" r="0.8" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="1140" cy="18" r="0.5" fill="#FFFFFF" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="wrap footer-wrap">
+    <div class="footer-left">
+      <span class="footer-mark">※</span>
+      <span>{{ site.author }} · {{ site.time | date: '%Y' }}</span>
+    </div>
+    <div class="footer-right">
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      <span class="footer-sep">·</span>
+      <a href="#top">{{ t.footer_top[lang] }}</a>
+    </div>
+  </div>
+</footer>

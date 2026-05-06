@@ -1,0 +1,36 @@
+{%- comment -%}
+  Formata data conforme o idioma da página.
+  Uso:
+    {% include data.html date=page.date lang=page.lang %}
+    {% include data.html date=post.date lang=post.lang format="curto" %}
+
+  format="completo" (default):
+    pt-br: "24 de abril de 2026"
+    en:    "April 24, 2026"
+    ja:    "2026年4月24日"
+  format="curto":
+    pt-br/en: "24.04.2026"
+    ja:       "2026.04.24"
+{%- endcomment -%}
+{%- assign mes_num = include.date | date: "%-m" -%}
+{%- assign dia = include.date | date: "%-d" -%}
+{%- assign ano = include.date | date: "%Y" -%}
+{%- assign lang = include.lang | default: "en" -%}
+
+{%- if include.format == "curto" -%}
+  {%- if lang == "ja" -%}
+    {{ include.date | date: "%Y.%m.%d" }}
+  {%- else -%}
+    {{ include.date | date: "%d.%m.%Y" }}
+  {%- endif -%}
+{%- else -%}
+  {%- if lang == "ja" -%}
+    {{ ano }}年{{ mes_num }}月{{ dia }}日
+  {%- elsif lang == "en" -%}
+    {%- assign mes_key = "month_" | append: mes_num -%}
+    {{ site.data.i18n[mes_key].en }} {{ dia }}, {{ ano }}
+  {%- else -%}
+    {%- assign mes_key = "month_" | append: mes_num -%}
+    {{ dia }} de {{ site.data.i18n[mes_key]['pt-br'] }} de {{ ano }}
+  {%- endif -%}
+{%- endif -%}

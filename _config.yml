@@ -1,0 +1,93 @@
+# ============================================================
+# CONFIGURAÇÃO DO SITE
+# ============================================================
+
+# --- Identidade ---
+title: "Pedro"
+tagline: "Process journal, essays, and loose ideas"
+description: "Creative process journal, making-ofs of films, and essays on cinema and animation."
+author: "Pedro"
+
+# --- URL ---
+url: "https://pedrostanley.com"
+baseurl: ""
+
+# --- Idiomas ---
+# Padrão = inglês (servido na raiz). Português em /pt/, japonês em /ja/.
+default_lang: "en"
+languages: ["en", "pt-br", "ja"]
+
+# --- Localização ---
+lang: "en"
+timezone: "America/Sao_Paulo"
+
+# --- Build ---
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:slug/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Coleções por idioma
+# - posts (built-in)  -> EN, em /posts/:slug/
+# - posts_pt          -> PT, em /pt/posts/:slug/
+# - posts_ja          -> JA, em /ja/posts/:slug/
+collections:
+  posts_pt:
+    output: true
+    permalink: /pt/posts/:slug/
+  posts_ja:
+    output: true
+    permalink: /ja/posts/:slug/
+  ensaios:
+    output: true
+    permalink: /pt/ensaios/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "en"
+  - scope:
+      path: ""
+      type: "posts_pt"
+    values:
+      layout: "post"
+      lang: "pt-br"
+  - scope:
+      path: ""
+      type: "posts_ja"
+    values:
+      layout: "post"
+      lang: "ja"
+  - scope:
+      path: ""
+      type: "ensaios"
+    values:
+      layout: "post"
+      lang: "pt-br"
+  - scope:
+      path: "pt"
+    values:
+      lang: "pt-br"
+  - scope:
+      path: "ja"
+    values:
+      lang: "ja"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      lang: "en"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .gitignore

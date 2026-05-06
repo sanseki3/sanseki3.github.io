@@ -1,0 +1,11 @@
+{%- include head.html -%}
+<body id="top" class="lang-{{ page.lang | default: 'en' | replace: '-', '_' }}">
+  {%- include header.html -%}
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  {%- include footer.html -%}
+</body>
+</html>

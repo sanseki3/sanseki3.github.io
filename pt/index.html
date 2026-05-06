@@ -1,0 +1,76 @@
+---
+layout: default
+title: Início
+permalink: /pt/
+lang: pt-br
+translations:
+  en: /
+  ja: /ja/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<section class="home-hero wrap">
+  <p class="home-hero__kicker">{{ t.home_kicker['pt-br'] }}</p>
+  <h1 class="home-hero__title">{{ t.home_headline['pt-br'] }}</h1>
+  <p class="home-hero__intro">{{ t.home_intro['pt-br'] }}</p>
+</section>
+
+<section class="wrap">
+  <ul class="post-list" id="posts-recentes">
+    <li>
+      <h2 class="post-list__section-title">{{ t.home_recent['pt-br'] }}</h2>
+    </li>
+    {%- if site.posts_pt.size == 0 -%}
+      <li class="post-item">
+        <span class="post-item__date">—</span>
+        <div>
+          <p class="post-item__excerpt"><em>{{ t.home_empty['pt-br'] }}</em></p>
+        </div>
+      </li>
+    {%- else -%}
+      {%- assign sorted_posts = site.posts_pt | sort: 'date' | reverse -%}
+      {%- for post in sorted_posts -%}
+        <li class="post-item">
+          <span class="post-item__date">{%- include data.html date=post.date lang="pt-br" format="curto" -%}</span>
+          <div>
+            <h3 class="post-item__title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            {%- if post.subtitle -%}
+              <p class="post-item__excerpt">{{ post.subtitle }}</p>
+            {%- elsif post.excerpt -%}
+              <p class="post-item__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            {%- endif -%}
+            {%- if post.tags and post.tags.size > 0 -%}
+              <p class="post-item__tags">
+                {%- for tag in post.tags -%}#{{ tag }}{%- unless forloop.last -%} · {% endunless -%}{%- endfor -%}
+              </p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+
+  {%- if site.ensaios.size > 0 -%}
+  <ul class="post-list">
+    <li>
+      <h2 class="post-list__section-title">{{ t.home_essays['pt-br'] }}</h2>
+    </li>
+    {%- for ensaio in site.ensaios -%}
+      <li class="post-item">
+        <span class="post-item__date">{%- include data.html date=ensaio.date lang="pt-br" format="curto" -%}</span>
+        <div>
+          <h3 class="post-item__title">
+            <a href="{{ ensaio.url | relative_url }}">{{ ensaio.title }}</a>
+          </h3>
+          {%- if ensaio.subtitle -%}
+            <p class="post-item__excerpt">{{ ensaio.subtitle }}</p>
+          {%- endif -%}
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</section>

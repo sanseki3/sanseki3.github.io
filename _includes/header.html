@@ -1,0 +1,100 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n -%}
+
+{%- if lang == "pt-br" -%}
+  {%- assign home_url = "/pt/" -%}
+  {%- assign projects_url = "/pt/projetos/" -%}
+  {%- assign essays_url = "/pt/ensaios/" -%}
+  {%- assign about_url = "/pt/sobre/" -%}
+{%- elsif lang == "ja" -%}
+  {%- assign home_url = "/ja/" -%}
+  {%- assign projects_url = "/ja/projects/" -%}
+  {%- assign essays_url = "/ja/essays/" -%}
+  {%- assign about_url = "/ja/about/" -%}
+{%- else -%}
+  {%- assign home_url = "/" -%}
+  {%- assign projects_url = "/projects/" -%}
+  {%- assign essays_url = "/essays/" -%}
+  {%- assign about_url = "/about/" -%}
+{%- endif -%}
+
+<header class="site-header">
+  {%- comment -%} Decoração: estrelas + lua, só aparece no tema noite (controlado por CSS) {%- endcomment -%}
+  <div class="header-deco" aria-hidden="true">
+    <svg class="header-deco__stars" viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <circle cx="40" cy="22" r="0.7" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="100" cy="44" r="1.0" fill="#FFFFFF" class="star-tw-a"/>
+      <circle cx="160" cy="14" r="0.5" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="220" cy="52" r="1.3" fill="#FFFFFF"/>
+      <circle cx="285" cy="28" r="0.7" fill="#FFFFFF" opacity="0.85"/>
+      <circle cx="340" cy="18" r="0.5" fill="#FFFFFF" opacity="0.6"/>
+      <circle cx="395" cy="46" r="1.0" fill="#FFFFFF" class="star-tw-b"/>
+      <circle cx="450" cy="32" r="0.6" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="510" cy="12" r="0.7" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="570" cy="56" r="0.5" fill="#FFFFFF" opacity="0.6"/>
+      <circle cx="625" cy="24" r="0.9" fill="#FFFFFF" class="star-tw-c"/>
+      <circle cx="685" cy="38" r="0.6" fill="#FFFFFF" opacity="0.7"/>
+      <circle cx="745" cy="14" r="1.1" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="805" cy="48" r="0.5" fill="#FFFFFF" opacity="0.55"/>
+      <circle cx="865" cy="30" r="0.7" fill="#FFFFFF" opacity="0.75"/>
+      <circle cx="920" cy="58" r="0.6" fill="#FFFFFF" opacity="0.6"/>
+      <circle cx="975" cy="20" r="0.8" fill="#FFFFFF" class="star-tw-a"/>
+      <circle cx="1035" cy="42" r="0.6" fill="#FFFFFF" opacity="0.65"/>
+      <circle cx="1085" cy="16" r="0.5" fill="#FFFFFF" opacity="0.55"/>
+    </svg>
+    <svg class="header-deco__moon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="30" cy="30" r="22" fill="#FFFFFF" opacity="0.05"/>
+      <circle cx="30" cy="30" r="17" fill="#FFFFFF" opacity="0.10"/>
+      <circle cx="30" cy="30" r="13" fill="#F5F2E8" opacity="0.97"/>
+      <circle cx="27" cy="27" r="1.4" fill="#D5CDB6" opacity="0.4"/>
+      <circle cx="33" cy="32" r="1.0" fill="#D5CDB6" opacity="0.35"/>
+      <circle cx="29" cy="35" r="0.8" fill="#D5CDB6" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="wrap header-wrap">
+    <a class="site-title" href="{{ home_url | relative_url }}">
+      <span class="site-title__name">Pedro Stanley</span>
+      <span class="site-title__kanji" lang="ja">三石</span>
+    </a>
+
+    <div class="site-header__right">
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="{{ home_url | relative_url }}">{{ t.nav_home[lang] }}</a>
+        <a href="{{ projects_url | relative_url }}">{{ t.nav_projects[lang] }}</a>
+        <a href="{{ essays_url | relative_url }}">{{ t.nav_essays[lang] }}</a>
+        <a href="{{ about_url | relative_url }}">{{ t.nav_about[lang] }}</a>
+      </nav>
+
+      {%- include lang-switcher.html -%}
+
+      <button class="theme-toggle" type="button" aria-label="{{ t.theme_toggle[lang] }}" title="{{ t.theme_toggle[lang] }}" onclick="toggleTheme()">
+        {%- comment -%} Sol: aparece no tema noite (clique → vai pro dia) {%- endcomment -%}
+        <svg class="theme-toggle__sun" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.2"/>
+          <line x1="10" y1="2.5" x2="10" y2="4"/>
+          <line x1="10" y1="16" x2="10" y2="17.5"/>
+          <line x1="2.5" y1="10" x2="4" y2="10"/>
+          <line x1="16" y1="10" x2="17.5" y2="10"/>
+          <line x1="4.6" y1="4.6" x2="5.7" y2="5.7"/>
+          <line x1="14.3" y1="14.3" x2="15.4" y2="15.4"/>
+          <line x1="4.6" y1="15.4" x2="5.7" y2="14.3"/>
+          <line x1="14.3" y1="5.7" x2="15.4" y2="4.6"/>
+        </svg>
+        {%- comment -%} Lua: aparece no tema dia (clique → vai pra noite) {%- endcomment -%}
+        <svg class="theme-toggle__moon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 11.5A6 6 0 0 1 8.5 4a6 6 0 1 0 7.5 7.5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme') || 'night';
+    var next = current === 'day' ? 'night' : 'day';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e) {}
+  }
+</script>

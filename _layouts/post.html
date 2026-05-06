@@ -1,0 +1,47 @@
+---
+layout: default
+---
+{%- assign lang = page.lang | default: "pt-br" -%}
+{%- assign t = site.data.i18n -%}
+
+<article class="post">
+  <header class="post-header wrap--narrow">
+    {%- if page.kicker -%}
+      <p class="post-kicker">{{ page.kicker }}</p>
+    {%- endif -%}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {%- if page.subtitle -%}
+      <p class="post-subtitle">{{ page.subtitle }}</p>
+    {%- endif -%}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {%- include data.html date=page.date lang=lang -%}
+      </time>
+      {%- if page.tags and page.tags.size > 0 -%}
+        <span class="post-meta__sep">·</span>
+        <span class="post-tags">
+          {%- for tag in page.tags -%}
+            <span class="post-tag">{{ tag }}</span>
+          {%- endfor -%}
+        </span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content wrap--narrow">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer wrap--narrow">
+    <hr class="ornament">
+    <p class="post-footer__back">
+      {%- if lang == "en" -%}
+        <a href="{{ '/en/' | relative_url }}">{{ t.post_back[lang] }}</a>
+      {%- elsif lang == "ja" -%}
+        <a href="{{ '/ja/' | relative_url }}">{{ t.post_back[lang] }}</a>
+      {%- else -%}
+        <a href="{{ '/' | relative_url }}">{{ t.post_back[lang] }}</a>
+      {%- endif -%}
+    </p>
+  </footer>
+</article>
