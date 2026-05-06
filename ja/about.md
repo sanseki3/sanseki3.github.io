@@ -24,8 +24,8 @@ translations:
 
 ## 連絡先
 
-- メール: [your-email@example.com](mailto:your-email@example.com)
-- Instagram: [@your_handle](https://instagram.com/your_handle)
-- YouTube: [チャンネル](https://youtube.com/@your_channel)
+- メール: [pedrostanley42@gmail.com](mailto:pedrostanley42@gmail.com)
+- Instagram: [@3sanseki](https://x.com/3sanseki)
+- YouTube: [SANSEKI 三石](https://www.youtube.com/@sansekitv)
 
 </div>
