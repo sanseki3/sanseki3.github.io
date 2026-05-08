@@ -2,7 +2,7 @@
 layout: post
 title: "Abrindo o caderno"
 subtitle: "Por que decidi abrir um espaço público de processo."
-date: 2026-04-24
+date: 2026-08-24
 kicker: "Primeiro post"
 tags: [meta, processo]
 lang: pt-br
