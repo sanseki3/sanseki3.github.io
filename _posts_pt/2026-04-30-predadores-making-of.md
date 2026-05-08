@@ -2,7 +2,7 @@
 layout: post
 title: "Predadores: como fiz um curta animado em três meses com IA"
 subtitle: "Pipeline, decisões, erros e o que faria diferente. Um relato detalhado da produção."
-date: 2026-04-30
+date: 2026-08-30
 kicker: "Making-of · Predadores"
 tags: [predadores, making-of, ia-generativa, animação, midjourney]
 ---
