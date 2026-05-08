@@ -12,24 +12,13 @@ translations:
 
 # <em>Projects</em>
 
-I work in long cycles. Below are the films and narratives in development, release, or indefinite hiatus.
-
 <ul class="project-list">
 
   <li class="project-card">
-    <p class="project-card__status">In production · expected release April 30</p>
+    <p class="project-card__status">RELEASED · PUBLISHED MAY 6, 2026</p>
     <h2 class="project-card__title">Predators</h2>
-    <p class="project-card__description">
-      Animated short, around two minutes long. Two rival animals — a poison frog and a blind electric snake — fight over an egg in a clearing at dawn. About rivalry, mutual recognition, and what's left when the reason for the fight disappears.
-    </p>
-  </li>
-
-  <li class="project-card">
-    <p class="project-card__status">Worldbuilding · long-term</p>
-    <h2 class="project-card__title">Tony (in progress)</h2>
-    <p class="project-card__description">
-      Original story set in a familiar universe. Follows a teenager from the capital who moves to the countryside after his parents' divorce, and reluctantly discovers his identity as a trainer. Seven years of story, ending at twenty.
-    </p>
+    <p class="project-card__logline">"Two small predators find an abandoned egg in a meadow and clash over who gets it."</p>
+    <p class="project-card__description"><a href="https://youtu.be/QJLNqrLfgYA" target="_blank" rel="noopener">My first short film</a> — and the first project I produced entirely with generative AI tools.</p>
   </li>
 
 </ul>

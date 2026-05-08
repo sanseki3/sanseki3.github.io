@@ -661,6 +661,16 @@ pre code { background: none; padding: 0; }
   color: var(--color-ink-soft);
   margin: 0;
 }
+.project-card__logline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-sm);
+  padding-left: 1em;
+  border-left: 1px solid var(--color-rule);
+}
 
 /* -----------  TIPOGRAFIA EM JAPONÊS  ----------- */
 .lang-ja {
@@ -679,6 +689,10 @@ pre code { background: none; padding: 0; }
   font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
   letter-spacing: 0;
   font-style: normal !important;
+}
+.lang-ja .project-card__logline {
+  font-family: 'Noto Serif JP', 'Newsreader', serif;
+  font-style: normal;
 }
 .lang-ja .home-hero__title {
   font-size: clamp(1.8rem, 3.6vw, 2.8rem);
