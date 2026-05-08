@@ -2,7 +2,7 @@
 layout: post
 title: "Opening the Notebook"
 subtitle: "Why I decided to open a public space about process."
-date: 2026-04-24
+date: 2026-08-24
 kicker: "First post"
 tags: [meta, process]
 lang: en
