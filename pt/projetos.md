@@ -12,24 +12,13 @@ translations:
 
 # <em>Projetos</em>
 
-Trabalho em ciclos longos. Aqui ficam os filmes e narrativas em desenvolvimento, lançamento ou pausa indefinida.
-
 <ul class="project-list">
 
   <li class="project-card">
-    <p class="project-card__status">Em produção · publicação prevista para 30 de abril</p>
+    <p class="project-card__status">LANÇADO · PUBLICADO EM 6 DE MAIO DE 2026</p>
     <h2 class="project-card__title">Predadores</h2>
-    <p class="project-card__description">
-      Curta-metragem animado de cerca de dois minutos. Dois animais rivais — uma rã venenosa e uma cobra-elétrica cega — disputam um ovo numa clareira ao amanhecer. Sobre rivalidade, reconhecimento mútuo, e o que sobra quando o motivo da disputa desaparece.
-    </p>
-  </li>
-
-  <li class="project-card">
-    <p class="project-card__status">Worldbuilding · longo prazo</p>
-    <h2 class="project-card__title">Tony (em construção)</h2>
-    <p class="project-card__description">
-      Narrativa original ambientada num universo familiar. Acompanha um adolescente da capital que se muda para o interior depois do divórcio dos pais, e descobre, a contragosto, sua identidade como treinador. Sete anos de história, terminando aos vinte.
-    </p>
+    <p class="project-card__logline">"Dois pequenos predadores encontram um ovo abandonado em um campo e se enfrentam para decidir quem vai ficar com ele."</p>
+    <p class="project-card__description"><a href="https://youtu.be/QJLNqrLfgYA" target="_blank" rel="noopener">Meu primeiro curta</a> — e o primeiro projeto que produzi inteiramente com ferramentas de IA generativa.</p>
   </li>
 
 </ul>
