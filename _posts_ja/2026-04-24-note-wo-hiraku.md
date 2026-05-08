@@ -2,7 +2,7 @@
 layout: post
 title: "ノートを開く"
 subtitle: "なぜ制作過程を公開する場所をつくることにしたのか。"
-date: 2026-04-24
+date: 2026-08-24
 kicker: "最初の投稿"
 tags: [メタ, 制作過程]
 lang: ja
