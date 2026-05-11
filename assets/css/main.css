@@ -119,6 +119,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
   letter-spacing: -0.005em;
   margin: 0 0 var(--space-md);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600; }
 h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-top: var(--space-xl); }
@@ -286,8 +289,13 @@ pre code { background: none; padding: 0; }
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
-  padding-left: var(--space-md);
-  border-left: 1px solid var(--color-rule);
+  /* o separador vertical antes do PT só aparece no desktop — ver @media (min-width: 769px) abaixo */
+}
+@media (min-width: 769px) {
+  .lang-switcher {
+    padding-left: var(--space-md);
+    border-left: 1px solid var(--color-rule);
+  }
 }
 .lang-switcher a,
 .lang-switcher__current,
@@ -341,11 +349,10 @@ pre code { background: none; padding: 0; }
 [data-theme="night"] .theme-toggle__sun { display: block; }
 [data-theme="day"]   .theme-toggle__moon { display: block; }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .header-wrap { flex-direction: column; gap: var(--space-sm); align-items: flex-start; }
   .site-header__right { gap: var(--space-md); width: 100%; justify-content: space-between; padding-top: var(--space-md); }
   .site-nav { gap: var(--space-md); flex-wrap: wrap; }
-  .lang-switcher { padding-left: 0; border-left: none; }
   .header-deco__moon { width: 42px; height: 42px; right: 6%; top: 8px; }
 }
 
@@ -371,6 +378,9 @@ pre code { background: none; padding: 0; }
   margin: 0 0 var(--space-md);
   letter-spacing: -0.01em;
   color: var(--color-ink);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 .home-hero__title em {
   font-style: italic;
