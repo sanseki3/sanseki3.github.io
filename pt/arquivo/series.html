@@ -50,7 +50,7 @@ translations:
               {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
               {{ title }} ({{ item.ano }})
             </p>
-            <p class="record-item__meta">{{ t.archive_completed_at['pt-br'] }} {%- include concluido-em.html date=item.concluido_em lang="pt-br" -%}</p>
+            <p class="record-item__meta">{{ t.archive_completed_at['pt-br'] }} {% include concluido-em.html date=item.concluido_em lang="pt-br" -%}</p>
           </li>
         {%- endfor -%}
       </ul>
