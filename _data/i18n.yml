@@ -59,6 +59,31 @@ archive_films:        { pt-br: "Filmes",      en: "Films",   ja: "映画" }
 archive_series:       { pt-br: "Séries",      en: "Series",  ja: "シリーズ" }
 archive_books:        { pt-br: "Livros",      en: "Books",   ja: "書籍" }
 archive_comics:       { pt-br: "Quadrinhos",  en: "Comics",  ja: "漫画" }
+
+# Registros (estados das listas)
+archive_watching:        { pt-br: "Assistindo",  en: "Watching",  ja: "視聴中" }
+archive_completed_watch: { pt-br: "Concluídas",  en: "Completed", ja: "視聴済み" }
+archive_reading:         { pt-br: "Lendo",       en: "Reading",   ja: "読書中" }
+archive_completed_read:  { pt-br: "Concluídos",  en: "Completed", ja: "読了" }
+archive_completed_at:    { pt-br: "Concluído em", en: "Completed in", ja: "完了" }
+
+# Intros das 4 páginas de listagem
+intro_films:
+  pt-br: "Um registro dos filmes que assisti desde abril de 2026, quando este site foi ao ar."
+  en: "A record of the films I've watched since April 2026, when this site went live."
+  ja: "2026年4月、このサイトを公開して以降に観た映画の記録。"
+intro_series:
+  pt-br: "As séries, animes e desenhos que venho acompanhando desde abril de 2026, quando este site foi ao ar."
+  en: "The series, anime, and cartoons I've been following since April 2026, when this site went live."
+  ja: "2026年4月、このサイトを公開して以降に観ているシリーズ・アニメ作品の記録。"
+intro_books:
+  pt-br: "Um registro dos livros que venho lendo desde abril de 2026, quando este site foi ao ar."
+  en: "A record of the books I've been reading since April 2026, when this site went live."
+  ja: "2026年4月、このサイトを公開して以降に読んでいる書籍の記録。"
+intro_comics:
+  pt-br: "Os quadrinhos e mangás que venho lendo desde abril de 2026, quando este site foi ao ar."
+  en: "The comics and manga I've been reading since April 2026, when this site went live."
+  ja: "2026年4月、このサイトを公開して以降に読んでいる漫画作品の記録。"
 nav_about:    { pt-br: "Sobre",    en: "About",    ja: "プロフィール" }
 
 theme_toggle:
@@ -116,15 +141,15 @@ err_404_back:
 # MESES (formato de datas)
 # ============================================================
 
-month_1:  { pt-br: "janeiro",   en: "January" }
-month_2:  { pt-br: "fevereiro", en: "February" }
-month_3:  { pt-br: "março",     en: "March" }
-month_4:  { pt-br: "abril",     en: "April" }
-month_5:  { pt-br: "maio",      en: "May" }
-month_6:  { pt-br: "junho",     en: "June" }
-month_7:  { pt-br: "julho",     en: "July" }
-month_8:  { pt-br: "agosto",    en: "August" }
-month_9:  { pt-br: "setembro",  en: "September" }
-month_10: { pt-br: "outubro",   en: "October" }
-month_11: { pt-br: "novembro",  en: "November" }
-month_12: { pt-br: "dezembro",  en: "December" }
+month_1:  { pt-br: "janeiro",   en: "January",     ja: "1月" }
+month_2:  { pt-br: "fevereiro", en: "February",    ja: "2月" }
+month_3:  { pt-br: "março",     en: "March",       ja: "3月" }
+month_4:  { pt-br: "abril",     en: "April",       ja: "4月" }
+month_5:  { pt-br: "maio",      en: "May",         ja: "5月" }
+month_6:  { pt-br: "junho",     en: "June",        ja: "6月" }
+month_7:  { pt-br: "julho",     en: "July",        ja: "7月" }
+month_8:  { pt-br: "agosto",    en: "August",      ja: "8月" }
+month_9:  { pt-br: "setembro",  en: "September",   ja: "9月" }
+month_10:  { pt-br: "outubro",   en: "October",     ja: "10月" }
+month_11:  { pt-br: "novembro",  en: "November",    ja: "11月" }
+month_12:  { pt-br: "dezembro",  en: "December",    ja: "12月" }

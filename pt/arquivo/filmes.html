@@ -1,0 +1,37 @@
+---
+layout: default
+title: Filmes
+permalink: /pt/arquivo/filmes/
+lang: pt-br
+translations:
+  en: /archive/films/
+  ja: /ja/archive/films/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>{{ t.archive_films['pt-br'] }}</em></h1>
+    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">{{ t.intro_films['pt-br'] }}</p>
+  </header>
+
+  {%- assign films_sorted = site.filmes | where_exp: "i", "i.concluido_em" | sort: "concluido_em" | reverse -%}
+  {%- assign films_by_year = films_sorted | group_by_exp: "i", "i.concluido_em | split: '-' | first" -%}
+
+  {%- for year_group in films_by_year -%}
+    <h2 class="record-year">{{ year_group.name }}</h2>
+    <ul class="record-list">
+      {%- for item in year_group.items -%}
+        {%- assign title = item.titulo_pt | default: item.titulo -%}
+        <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+          <p class="record-item__main">
+            {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+            {{ title }} ({{ item.ano }}) — {{ item.diretor }}
+          </p>
+          <p class="record-item__meta">{{ t.archive_completed_at['pt-br'] }} {%- include concluido-em.html date=item.concluido_em lang="pt-br" -%}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endfor -%}
+</div>

@@ -45,6 +45,16 @@ collections:
   ensaios:
     output: true
     permalink: /pt/ensaios/:slug/
+  # Registros de consumo — cada item é cadastrado uma vez e renderizado
+  # nas três páginas de idioma (PT, EN, JA) com rótulos traduzidos.
+  filmes:
+    output: false
+  series:
+    output: false
+  livros:
+    output: false
+  quadrinhos:
+    output: false
 
 defaults:
   - scope:

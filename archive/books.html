@@ -1,0 +1,60 @@
+---
+layout: default
+title: Books
+permalink: /archive/books/
+lang: en
+translations:
+  pt-br: /pt/arquivo/livros/
+  ja: /ja/archive/books/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>{{ t.archive_books.en }}</em></h1>
+    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">{{ t.intro_books.en }}</p>
+  </header>
+
+  {%- assign reading = site.livros | where: "status", "lendo" | sort_natural: "titulo" -%}
+  {%- assign completed = site.livros | where: "status", "concluido" | sort: "concluido_em" | reverse -%}
+
+  {%- if reading.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_reading.en }}</h2>
+    <ul class="record-list">
+      {%- for item in reading -%}
+        {%- assign title = item.titulo -%}
+        <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+          <p class="record-item__main">
+            {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+            {{ title }}{%- if item.autor and item.autor != "" %} — {{ item.autor }}{%- endif -%}
+          </p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endif -%}
+
+  {%- if completed.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_completed_read.en }}</h2>
+    {%- assign completed_by_year = completed | group_by_exp: "i", "i.concluido_em | split: '-' | first" -%}
+    {%- for year_group in completed_by_year -%}
+      <h3 class="record-year">{{ year_group.name }}</h3>
+      <ul class="record-list">
+        {%- for item in year_group.items -%}
+          {%- assign title = item.titulo -%}
+          <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+            <p class="record-item__main">
+              {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+              {{ title }}{%- if item.autor and item.autor != "" %} — {{ item.autor }}{%- endif -%}
+            </p>
+            <p class="record-item__meta">{{ t.archive_completed_at.en }} {%- include concluido-em.html date=item.concluido_em lang="en" -%}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
+</div>

@@ -1,0 +1,60 @@
+---
+layout: default
+title: Séries
+permalink: /pt/arquivo/series/
+lang: pt-br
+translations:
+  en: /archive/series/
+  ja: /ja/archive/series/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>{{ t.archive_series['pt-br'] }}</em></h1>
+    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">{{ t.intro_series['pt-br'] }}</p>
+  </header>
+
+  {%- assign watching = site.series | where: "status", "assistindo" | sort_natural: "titulo" -%}
+  {%- assign completed = site.series | where: "status", "concluido" | sort: "concluido_em" | reverse -%}
+
+  {%- if watching.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_watching['pt-br'] }}</h2>
+    <ul class="record-list">
+      {%- for item in watching -%}
+        {%- assign title = item.titulo_pt | default: item.titulo -%}
+        <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+          <p class="record-item__main">
+            {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+            {{ title }} ({{ item.ano }})
+          </p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endif -%}
+
+  {%- if completed.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_completed_watch['pt-br'] }}</h2>
+    {%- assign completed_by_year = completed | group_by_exp: "i", "i.concluido_em | split: '-' | first" -%}
+    {%- for year_group in completed_by_year -%}
+      <h3 class="record-year">{{ year_group.name }}</h3>
+      <ul class="record-list">
+        {%- for item in year_group.items -%}
+          {%- assign title = item.titulo_pt | default: item.titulo -%}
+          <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+            <p class="record-item__main">
+              {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+              {{ title }} ({{ item.ano }})
+            </p>
+            <p class="record-item__meta">{{ t.archive_completed_at['pt-br'] }} {%- include concluido-em.html date=item.concluido_em lang="pt-br" -%}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
+</div>

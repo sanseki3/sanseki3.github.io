@@ -1,0 +1,60 @@
+---
+layout: default
+title: 漫画
+permalink: /ja/archive/comics/
+lang: ja
+translations:
+  en: /archive/comics/
+  pt-br: /pt/arquivo/quadrinhos/
+---
+
+{%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>{{ t.archive_comics.ja }}</em></h1>
+    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">{{ t.intro_comics.ja }}</p>
+  </header>
+
+  {%- assign reading = site.quadrinhos | where: "status", "lendo" | sort_natural: "titulo" -%}
+  {%- assign completed = site.quadrinhos | where: "status", "concluido" | sort: "concluido_em" | reverse -%}
+
+  {%- if reading.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_reading.ja }}</h2>
+    <ul class="record-list">
+      {%- for item in reading -%}
+        {%- assign title = item.titulo_ja | default: item.titulo -%}
+        <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+          <p class="record-item__main">
+            {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+            {{ title }}{%- if item.autor and item.autor != "" %} — {{ item.autor }}{%- endif -%}
+          </p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endif -%}
+
+  {%- if completed.size > 0 -%}
+  <section class="record-section">
+    <h2 class="record-section__title">{{ t.archive_completed_read.ja }}</h2>
+    {%- assign completed_by_year = completed | group_by_exp: "i", "i.concluido_em | split: '-' | first" -%}
+    {%- for year_group in completed_by_year -%}
+      <h3 class="record-year">{{ year_group.name }}</h3>
+      <ul class="record-list">
+        {%- for item in year_group.items -%}
+          {%- assign title = item.titulo_ja | default: item.titulo -%}
+          <li class="record-item{% if item.favorite %} record-item--favorite{% endif %}">
+            <p class="record-item__main">
+              {%- if item.favorite -%}<span class="record-item__star" aria-hidden="true">✦</span>{%- endif -%}
+              {{ title }}{%- if item.autor and item.autor != "" %} — {{ item.autor }}{%- endif -%}
+            </p>
+            <p class="record-item__meta">{{ t.archive_completed_at.ja }} {%- include concluido-em.html date=item.concluido_em lang="ja" -%}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
+</div>

@@ -1,0 +1,20 @@
+{%- comment -%}
+  Formata um par "ano-mês" (ex.: "2026-05") no idioma indicado.
+  Uso: {%- include concluido-em.html date=item.concluido_em lang="en" -%}
+
+  Saída:
+    pt-br → "maio de 2026"
+    en    → "May 2026"
+    ja    → "2026年5月"
+{%- endcomment -%}
+{%- assign parts = include.date | split: '-' -%}
+{%- assign year = parts[0] -%}
+{%- assign month_num = parts[1] | plus: 0 -%}
+{%- assign month_key = "month_" | append: month_num -%}
+{%- if include.lang == "ja" -%}
+{{ year }}年{{ month_num }}月
+{%- elsif include.lang == "en" -%}
+{{ site.data.i18n[month_key].en }} {{ year }}
+{%- else -%}
+{{ site.data.i18n[month_key]['pt-br'] }} de {{ year }}
+{%- endif -%}
