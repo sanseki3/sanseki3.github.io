@@ -4,17 +4,17 @@
 {%- if lang == "pt-br" -%}
   {%- assign home_url = "/pt/" -%}
   {%- assign projects_url = "/pt/projetos/" -%}
-  {%- assign essays_url = "/pt/ensaios/" -%}
+  {%- assign archive_url = "/pt/arquivo/" -%}
   {%- assign about_url = "/pt/sobre/" -%}
 {%- elsif lang == "ja" -%}
   {%- assign home_url = "/ja/" -%}
   {%- assign projects_url = "/ja/projects/" -%}
-  {%- assign essays_url = "/ja/essays/" -%}
+  {%- assign archive_url = "/ja/archive/" -%}
   {%- assign about_url = "/ja/about/" -%}
 {%- else -%}
   {%- assign home_url = "/" -%}
   {%- assign projects_url = "/projects/" -%}
-  {%- assign essays_url = "/essays/" -%}
+  {%- assign archive_url = "/archive/" -%}
   {%- assign about_url = "/about/" -%}
 {%- endif -%}
 
@@ -62,7 +62,7 @@
       <nav class="site-nav" aria-label="Navegação principal">
         <a href="{{ home_url | relative_url }}">{{ t.nav_home[lang] }}</a>
         <a href="{{ projects_url | relative_url }}">{{ t.nav_projects[lang] }}</a>
-        <a href="{{ essays_url | relative_url }}">{{ t.nav_essays[lang] }}</a>
+        <a href="{{ archive_url | relative_url }}">{{ t.nav_archive[lang] }}</a>
         <a href="{{ about_url | relative_url }}">{{ t.nav_about[lang] }}</a>
       </nav>
 

@@ -50,7 +50,7 @@ home_intro:
 
 nav_home:     { pt-br: "Início",   en: "Home",     ja: "ホーム" }
 nav_projects: { pt-br: "Projetos", en: "Projects", ja: "プロジェクト" }
-nav_essays:   { pt-br: "Ensaios",  en: "Essays",   ja: "エッセイ" }
+nav_archive:  { pt-br: "Arquivo",  en: "Archive",  ja: "記録" }
 nav_about:    { pt-br: "Sobre",    en: "About",    ja: "プロフィール" }
 
 theme_toggle:
@@ -63,10 +63,10 @@ home_recent:
   en: "Recent posts"
   ja: "最新の投稿"
 
-home_essays:
-  pt-br: "Ensaios"
-  en: "Essays"
-  ja: "エッセイ"
+home_archive:
+  pt-br: "Arquivo"
+  en: "Archive"
+  ja: "記録"
 
 home_empty:
   pt-br: "Em breve, o primeiro post."
