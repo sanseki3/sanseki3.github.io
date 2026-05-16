@@ -8,21 +8,36 @@ translations:
   ja: /ja/archive/
 ---
 
+{%- assign t = site.data.i18n -%}
+
 <div class="wrap">
   <header class="page-content" style="padding-bottom: var(--space-md);">
     <h1><em>Archive</em></h1>
-    <p style="color: var(--color-ink-soft); font-size: 1.1rem;">
-      Longer pieces on cinema, animation, narrative, and whatever else comes up.
-      Different from process posts: here the focus is the idea, not the record.
-    </p>
   </header>
 
-  <ul class="post-list">
-    <li class="post-item">
-      <span class="post-item__date">—</span>
-      <div>
-        <p class="post-item__excerpt"><em>No entries published yet.</em></p>
-      </div>
+  {%- comment -%} Conteúdo autoral, destacado {%- endcomment -%}
+  <ul class="archive-list archive-list--featured">
+    <li class="archive-item">
+      <h2 class="archive-item__title"><a href="/archive/essays/">{{ t.archive_essays_label.en }}</a></h2>
     </li>
   </ul>
+
+  {%- comment -%} Registros de consumo, listagem leve, links pendentes {%- endcomment -%}
+  <section class="archive-section" aria-labelledby="archive-records">
+    <h2 id="archive-records" class="archive-section__title">{{ t.archive_records.en }}</h2>
+    <ul class="archive-list archive-list--compact">
+      <li class="archive-item archive-item--inert">
+        <h3 class="archive-item__title">{{ t.archive_films.en }}</h3>
+      </li>
+      <li class="archive-item archive-item--inert">
+        <h3 class="archive-item__title">{{ t.archive_series.en }}</h3>
+      </li>
+      <li class="archive-item archive-item--inert">
+        <h3 class="archive-item__title">{{ t.archive_books.en }}</h3>
+      </li>
+      <li class="archive-item archive-item--inert">
+        <h3 class="archive-item__title">{{ t.archive_comics.en }}</h3>
+      </li>
+    </ul>
+  </section>
 </div>

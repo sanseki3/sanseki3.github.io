@@ -51,6 +51,14 @@ home_intro:
 nav_home:     { pt-br: "Início",   en: "Home",     ja: "ホーム" }
 nav_projects: { pt-br: "Projetos", en: "Projects", ja: "プロジェクト" }
 nav_archive:  { pt-br: "Arquivo",  en: "Archive",  ja: "記録" }
+
+# Página Arquivo: rótulos do índice
+archive_essays_label: { pt-br: "Ensaios",     en: "Essays",  ja: "エッセイ" }
+archive_records:      { pt-br: "Registros",   en: "Records", ja: "見聞録" }
+archive_films:        { pt-br: "Filmes",      en: "Films",   ja: "映画" }
+archive_series:       { pt-br: "Séries",      en: "Series",  ja: "シリーズ" }
+archive_books:        { pt-br: "Livros",      en: "Books",   ja: "書籍" }
+archive_comics:       { pt-br: "Quadrinhos",  en: "Comics",  ja: "漫画" }
 nav_about:    { pt-br: "Sobre",    en: "About",    ja: "プロフィール" }
 
 theme_toggle:
