@@ -8,6 +8,12 @@ translations:
   ja: /ja/archive/
 ---
 {%- assign t = site.data.i18n -%}
+
+<div class="wrap">
+  <header class="page-content" style="padding-bottom: var(--space-md);">
+    <h1><em>Archive</em></h1>
+  </header>
+
   {%- comment -%} Registros de consumo, listagem leve, agora linkados {%- endcomment -%}
   <section class="archive-section" aria-labelledby="archive-records">
     <h2 id="archive-records" class="archive-section__title">{{ t.archive_records.en }}</h2>
