@@ -15,13 +15,14 @@ translations:
     <h1><em>Archive</em></h1>
   </header>
 
-  {%- comment -%} Conteúdo autoral, destacado {%- endcomment -%}
+  {%- comment -%} Conteúdo autoral, destacado 
   <ul class="archive-list archive-list--featured">
     <li class="archive-item">
       <h2 class="archive-item__title"><a href="/archive/essays/">{{ t.archive_essays_label.en }}</a></h2>
     </li>
   </ul>
-
+{%- endcomment -%}
+  
   {%- comment -%} Registros de consumo, listagem leve, agora linkados {%- endcomment -%}
   <section class="archive-section" aria-labelledby="archive-records">
     <h2 id="archive-records" class="archive-section__title">{{ t.archive_records.en }}</h2>
